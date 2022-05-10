@@ -139,6 +139,7 @@ const App = () => {
         // root
         result.data = data.filter((node) => (node.parents = [])).slice(0, 2);
 
+        // filter -> remove fake node
         result.data[0].children
           .map((i) => getNodeById(data, i))
           .filter((i) => i)
@@ -148,6 +149,7 @@ const App = () => {
         if (node.children.length > 0) {
           result.data = getParentsOfChildren(data, node.children);
 
+          // filter -> remove fake node
           result.data[0].children
             .map((i) => getNodeById(data, i))
             .filter((i) => i)
